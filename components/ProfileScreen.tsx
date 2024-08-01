@@ -6,7 +6,7 @@ export default function ProfileScreen() {
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.coloredText}>ERwwewewein Agpasa</Text>
+      <Text style={styles.coloredText}>Erwin Agpasa</Text>
       <Text style={styles.coloredText}>{apiUrl}</Text>
       {Array(100).fill(null).map((_, index) => (
         <Text key={index} style={styles.coloredText}>index</Text>
