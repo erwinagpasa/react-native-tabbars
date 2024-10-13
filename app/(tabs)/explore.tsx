@@ -6,9 +6,9 @@ export default function TabTwoScreen() {
 
   const handlePress = (event: any) => {
     if (event.nativeEvent.contentOffset.y > 0) {
-      setValue('false');
+      setValue('hide');
     } else {
-      setValue('true');
+      setValue('show');
     }
   };
 
