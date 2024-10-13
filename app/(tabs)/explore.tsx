@@ -1,16 +1,24 @@
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { StyleSheet, Text, Platform, ScrollView } from 'react-native';
-
-
-
-
+import { StyleSheet, Text, ScrollView } from 'react-native';
+import { useAppContext } from '../Context';
 
 export default function TabTwoScreen() {
+  const { setValue } = useAppContext();
+
+  const handlePress = (event: any) => {
+    if (event.nativeEvent.contentOffset.y > 0) {
+      setValue('false');
+    } else {
+      setValue('true');
+    }
+  };
+
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView contentContainerStyle={styles.container} onScroll={handlePress}>
       <Text style={styles.coloredText}>Erwin Agpasa</Text>
       {Array(100).fill(null).map((_, index) => (
-        <Text key={index} style={styles.coloredText}>index</Text>
+        <Text key={index} style={styles.coloredText}>
+          {index}
+        </Text>
       ))}
     </ScrollView>
   );
@@ -21,6 +29,6 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   coloredText: {
-    color: 'blue', // Change this to the color you want
+    color: 'blue',
   },
 });
